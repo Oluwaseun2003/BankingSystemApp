@@ -1,16 +1,33 @@
 public class Transaction {
+    private int accountNumber;
     private int transactionID;
     private String date;
     private double amount;
     private String transactionType;
     private String description;
 
-    public Transaction(int transactionID, String date, double amount, String transactionType, String description){
+    public Transaction(int accountNumber, int transactionID, String date, double amount, String transactionType, String description){
         this.transactionID = transactionID;
         this.date = date;
         this.amount = amount;
         this.transactionType = transactionType;
         this.description = description;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public int getTransactionID() {
+        return transactionID;
+    }
+
+    public void setTransactionID(int transactionID) {
+        this.transactionID = transactionID;
     }
 
     public int getTransactionId() {
@@ -52,4 +69,6 @@ public class Transaction {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
 }
