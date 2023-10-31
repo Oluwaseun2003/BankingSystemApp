@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class BankingSystem {
     private ArrayList<Account> accounts = new ArrayList<>();
@@ -10,12 +12,34 @@ public class BankingSystem {
         accounts.add(account);
     }
 
-    public void updateBalance(int accountNumber, double amount){
-        for (Account account : accounts){
-            if (account.getAccountNumber() == accountNumber){
+    public void updateBalance(int accountNumber, double amount) {
+        for (Account account : accounts) {
+            if (account.getAccountNumber() == accountNumber) {
                 account.setBalance(account.getBalance() + amount);
-            } break;
+                System.out.println("Balance updated successfully!");
+                return;
+            }
         }
+        System.out.println("Account not found. Balance update failed.");
+    }
+
+    public void addTransaction(int accountNumber, double amount, String transactionType, String description) {
+        for (Account account : accounts) {
+            if (account.getAccountNumber() == accountNumber) {
+                Transaction transaction = new Transaction(transactions.size() + 1, getCurrentDate(), amount, transactionType, description);
+                transactions.add(transaction);
+                account.setBalance(account.getBalance() + amount);
+                System.out.println("Transaction added successfully!");
+                return;
+            }
+        }
+        System.out.println("Account not found. Transaction failed.");
+    }
+
+    private String getCurrentDate() {
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY-MM-dd");
+        return currentDate.format(formatter);
     }
 
     public void transaction(Transaction transaction){
