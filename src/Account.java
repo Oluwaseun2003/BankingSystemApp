@@ -1,6 +1,6 @@
 public class Account {
     private String accountName;
-    private int accountNumber;
+    private long accountNumber;
     private double balance;
 
     private String accountType;
@@ -20,7 +20,7 @@ public class Account {
         this.accountName = accountName;
     }
 
-    public int getAccountNumber() {
+    public long getAccountNumber() {
         return accountNumber;
     }
 
@@ -36,11 +36,11 @@ public class Account {
         this.balance = balance;
     }
 
-    public String getAccoutType() {
+    public String getAccountType() {
         return accountType;
     }
 
-    public void setAccoutType(String accoutType) {
-        this.accountType = accoutType;
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
     }
 }

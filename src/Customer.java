@@ -3,10 +3,9 @@ public class Customer {
     private  String contactInfo;
     private String customerID;
 
-    public Customer(String name, String contactInfo, String customerID){
-        this.name = name;
-        this.contactInfo = contactInfo;
-        this.customerID = customerID;
+
+    public Customer(){
+
     }
 
     public String getName() {
@@ -32,4 +31,10 @@ public class Customer {
     public void setCustomerID(String customerID) {
         this.customerID = customerID;
     }
+
+    //    public Customer(String name, String contactInfo, String customerID){
+//        this.name = name;
+//        this.contactInfo = contactInfo;
+//        this.customerID = customerID;
 }
+

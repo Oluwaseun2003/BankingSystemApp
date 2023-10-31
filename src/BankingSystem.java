@@ -60,100 +60,56 @@ public class BankingSystem {
             System.out.println("Account Name: " + account.getAccountName());
             System.out.println("Account Number: " + account.getAccountNumber());
             System.out.println("Account Balance: " + account.getBalance());
-            System.out.println("Account Type: " + account.getAccoutType());
+            System.out.println("Account Type: " + account.getAccountType());
         }
 
     }
 
-    public void manageCustomerInfo(Customer customer){
+    public void manageCustomersInfo(Customer customer){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Managing Customer Info");
+        System.out.println("Managing Customer Information:");
+        System.out.println("1. Update Name");
+        System.out.println("2. Update Contact Information");
+        System.out.println("3. Update Customer ID");
+        System.out.println("4. Go Back");
 
-        System.out.println("1. Update your name?");
-        System.out.println("2. Update your Contact Info?");
-        System.out.println("3. Update your ID?");
-        System.out.println("4. View Your Details?");
-        System.out.println("5. Delete Your account?");
-        System.out.println("6. Go back");
-
-        System.out.println("Enter your choice Sir/Ma \n");
-
-        int choice = scanner.nextInt();
+        System.out.print("Enter your choice: ");
+        int customerChoice = scanner.nextInt();
         scanner.nextLine();
 
-        switch(choice) {
+        switch (customerChoice) {
             case 1:
-                System.out.println("Enter your preferred new Name");
+                System.out.print("Enter new name: ");
                 String newName = scanner.nextLine();
                 customer.setName(newName);
-                System.out.println("Name updated successfully\n");
+                System.out.println("Name updated successfully!");
                 break;
-
             case 2:
-                System.out.println("Enter new Contact Information\n");
+                System.out.print("Enter new contact information: ");
                 String newContactInfo = scanner.nextLine();
                 customer.setContactInfo(newContactInfo);
-                System.out.println("Your Contact Info has been updated");
+                System.out.println("Contact information updated successfully!");
                 break;
-
             case 3:
-                System.out.println("Enter your preferred ID(e.g 20231031001)");
-                String newCustomerId = scanner.nextLine();
-                customer.setCustomerID(newCustomerId);
+                System.out.print("Enter new customer ID: ");
+                String newCustomerID = scanner.nextLine();
+                customer.setCustomerID(newCustomerID);
+                System.out.println("Customer ID updated successfully!");
                 break;
 
             case 4:
-                System.out.println("These are your details");
-                System.out.println("Customer name: " + customer.getName());
-                System.out.println("Contact Information: " + customer.getContactInfo());
-                System.out.println("Customer ID: " + customer.getCustomerID());
+                System.out.println("Going back to the main menu.");
                 break;
-
-            case 5:
-                System.out.println("Are you sure you want to delete your account? Yes/No");
-                String deleteConfirmation = scanner.nextLine();
-                if (deleteConfirmation.equals("yes")){
-                    String idToDelete  = customer.getCustomerID();
-                    boolean accountsDeleted = false;
-
-                    ArrayList<Account> accountsToDelete = new ArrayList<>();
-                    ArrayList<Customer> customersToDelete = new ArrayList<>();
-
-                    for (Account account: accounts){
-                        if (account.getAccountName().equals(accountsToDelete)){
-                            accountsToDelete.add(account);
-                        }
-                    }
-
-                    for (Customer customer1: customers){
-                        if (customer1.getCustomerID().equals(customersToDelete)){
-                            customersToDelete.add(customer1);
-                        }
-                    }
-
-                    for (Account account: accountsToDelete){
-                        accounts.remove(account);
-                        accountsDeleted = true;
-                    }
-
-                    if (accountsDeleted) {
-                        System.out.println("Account Deleted successfully!");
-                    } else {
-                        System.out.println("No account with the name you inputted was found");
-                    }
-                } else {
-                    System.out.println("Account Deletion Cancelled");
-                }
-                break;
-
-            case 6:
-                System.out.println("Going back to the main menu");
-                break;
-
             default:
-                System.out.println("Invalid choice, try again");
-
+                System.out.println("Invalid choice. Please try again.");
+                break;
         }
 
+
+
+
+    }
+
+    public void manageCustomerInfo(String customerID) {
     }
 }
